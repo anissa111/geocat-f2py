@@ -6,9 +6,6 @@ import numpy as np
 # floats and complex types use max per IEEE-754
 
 msg_dtype = {
-    np.complex64: np.complex64(np.finfo(np.complex64).max),
-    np.complex128: np.complex128(np.finfo(np.complex128).max),
-    np.complex256: np.complex256(np.finfo(np.complex256).max),
     np.float16: np.float16(np.finfo(np.float16).max),
     np.float32: np.float32(np.finfo(np.float32).max),
     np.float64: np.float64(np.finfo(np.float64).max),
@@ -25,7 +22,6 @@ msg_dtype = {
 }
 
 # lists of classes of dtypes
-complex_dtypes = [np.complex64, np.complex128, np.complex256]
 float_dtypes = [np.float16, np.float32, np.float64, np.float128]
 int_dtypes = [np.int8, np.int16, np.int32, np.int64]
 uint_dtypes = [np.uint8, np.uint16, np.uint32, np.uint64]
@@ -45,8 +41,6 @@ def py2fort_msg(ndarray, msg_py=None, msg_fort=None):
     if msg_py is None:
         if ndtype in float_dtypes:
             msg_py = np.nan
-        elif ndtype in complex_dtypes:
-            msg_py = np.nan + np.nan * 1j
         else:
             msg_py = msg_dtype[ndtype]
 
@@ -80,8 +74,6 @@ def fort2py_msg(ndarray, msg_fort=None, msg_py=None):
     if msg_py is None:
         if ndtype in float_dtypes:
             msg_py = np.nan
-        elif ndtype in complex_dtypes:
-            msg_py = np.nan + np.nan * 1j
         else:
             msg_py = msg_dtype[ndtype]
 
