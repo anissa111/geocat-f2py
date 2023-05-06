@@ -1,7 +1,12 @@
 #''' setup.py is needed, but only to make namespaces happen,
 from pathlib import Path
-
+import os
+import subprocess
 from setuptools import find_packages, setup
+
+#''' compile fortran code
+subprocess.check_call(['./build.sh'])
+
 
 with open('README.md') as f:
     long_description = f.read()

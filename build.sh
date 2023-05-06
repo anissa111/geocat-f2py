@@ -9,4 +9,4 @@ f2py -c --fcompiler=gnu95 rcm2rgrid.pyf rcm2rgrid.f linmsg_dp.f linint2.f
 f2py -c --fcompiler=gnu95 triple2grid.pyf triple2grid.f
 cd ../../../..
 
-python -m pip install . --no-deps -vv
+echo "--- compiled ---"
