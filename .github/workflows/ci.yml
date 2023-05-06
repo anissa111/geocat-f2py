@@ -38,9 +38,13 @@ jobs:
           channels: conda-forge, ncar
           channel-priority: strict
       - name: Conda install (Darwin)
-        if: matrix.os == 'macos-latest'
+        if: matrix.os == 'macos-latest' && matrix.arch == 'x64'
         run: |
-          conda env update --file build_envs/environment_Darwin.yml --prune
+          conda env update --file build_envs/environment_Darwin_osx-64.yml --prune
+      - name: Conda install (Darwin arm64)
+        if: matrix.os == 'macos-latest' && matrix.arch == 'arm64'
+        run: |
+          conda env update --file build_envs/environment_Darwin_osx-arm64.yml --prune
       - name: Conda install (Linux)
         if: matrix.os == 'ubuntu-latest'
         run: |

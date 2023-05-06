@@ -8,11 +8,9 @@ import numpy as np
 msg_dtype = {
     np.complex64: np.complex64(np.finfo(np.complex64).max),
     np.complex128: np.complex128(np.finfo(np.complex128).max),
-    np.complex256: np.complex256(np.finfo(np.complex256).max),
     np.float16: np.float16(np.finfo(np.float16).max),
     np.float32: np.float32(np.finfo(np.float32).max),
     np.float64: np.float64(np.finfo(np.float64).max),
-    np.float128: np.float128(np.finfo(np.float128).max),
     np.int8: np.int8(np.iinfo(np.int8).max),
     np.int16: np.int16(np.iinfo(np.int16).max),
     np.int32: np.int32(np.iinfo(np.int32).max),
@@ -25,8 +23,8 @@ msg_dtype = {
 }
 
 # lists of classes of dtypes
-complex_dtypes = [np.complex64, np.complex128, np.complex256]
-float_dtypes = [np.float16, np.float32, np.float64, np.float128]
+complex_dtypes = [np.complex64, np.complex128]
+float_dtypes = [np.float16, np.float32, np.float64]
 int_dtypes = [np.int8, np.int16, np.int32, np.int64]
 uint_dtypes = [np.uint8, np.uint16, np.uint32, np.uint64]
 string_dtypes = [str]
